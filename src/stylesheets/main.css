@@ -1,2 +1,7 @@
 /* Your styles go here */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+canvas {
+    background-color: lightblue;
+    
+}

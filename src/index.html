@@ -5,16 +5,181 @@
   <meta charset="utf-8">
   <title>Project Starter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- 
     Don't add stylesheets/main.css or javascripts/main.js manually. 
     They will be added automatically by Webpack.
   -->
 </head>
 
-<body>
+<body onload="draw()">
   <!-- Your HTML goes here -->
   <h1>Welcome to CS 2350!</h1>
+  <canvas width="800" height="400">
+    Your browser does not support canvas.
+  </canvas>
 
+  <script>
+    let cvs = document.querySelector('canvas')
+
+    if (cvs.getContext) {
+      let ctx = cvs.getContext('2d')
+
+    
+
+      
+      // Head
+      ctx.fillStyle = "rgb(0, 150, 255)"
+      ctx.beginPath()
+      ctx.arc(200, 200, 75, 0, 2 * Math.PI)
+      ctx.fill()
+      
+      // Left Eye
+      ctx.fillStyle = 'black'  
+      ctx.beginPath()
+      ctx.moveTo(150, 175)
+      ctx.arc(160, 175, 13, 0, 2 * Math.PI)
+
+      
+      // Right Eye
+      ctx.moveTo(250, 175)
+      ctx.arc(240, 175, 13, 0, 2 * Math.PI)
+      ctx.fill()
+
+      // Frown
+      ctx.moveTo(235, 240)
+      ctx.arc(200, 240, 35, 0, Math.PI, true)
+      
+
+      // Tear
+      ctx.moveTo(240, 195)
+      ctx.arc(240, 205, 8, 0, Math.PI, false)
+      ctx.moveTo(240, 195)
+      ctx.lineTo(232, 205)
+
+      ctx.moveTo(250, 220)
+      ctx.arc(250, 230, 8, 0, Math.PI, false)
+      ctx.moveTo(250, 220)
+      ctx.lineTo(242, 230)
+      ctx.stroke()
+
+      // Clouds
+      ctx.fillStyle = 'grey'
+      ctx.beginPath()      
+      
+      let p = 185
+      let q = 45
+      let r = 75
+      let s = 185
+      let t = 190
+      let u = 60
+      let m = 0
+
+      while(m < 3) {
+        ctx.moveTo(p, q)
+        ctx.arc((p - 15), q, 20, 0, 2 * Math.PI)
+        ctx.moveTo(s, r)
+        ctx.arc((s - 15), r, 20, 0, 2 * Math.PI)
+        ctx.moveTo(t, u)
+        ctx.arc((t - 15), u, 20, 0, 2 * Math.PI)
+        p += 25
+        s += 25
+        t += 25
+        m++
+      }
+
+      ctx.moveTo(245, 60)
+      ctx.arc(245, 60, 20, 0, 2 * Math.PI)
+      ctx.moveTo(145, 60)
+      ctx.arc(145, 60, 20, 0, 2 * Math.PI)
+      ctx.fill()
+
+  
+
+      // Head
+      ctx.fillStyle = "yellow"
+      ctx.beginPath()
+      ctx.arc(600, 200, 75, 0, 2 * Math.PI)
+      ctx.fill()
+
+      // Left Eye
+      ctx.fillStyle = 'black'
+      ctx.beginPath()
+      ctx.moveTo(570, 175)
+      ctx.arc(560, 175, 13, 0, 2 * Math.PI)
+
+      // Right Eye
+      ctx.moveTo(630, 175)
+      ctx.arc(640, 175, 13, 0, 2 * Math.PI)
+      ctx.fill()
+      
+      // Smile
+      ctx.moveTo(635, 210)
+      ctx.arc(600, 210, 35, 0, Math.PI, false)
+      ctx.stroke()
+      
+      // Sun
+      ctx.fillStyle = "yellow"
+      ctx.beginPath()
+      ctx.arc(500, 50, 45, 0, 2 * Math.PI)
+      ctx.fill()
+  
+      // Rays         
+      let a = 500
+      let b = -40  
+      let c = 500
+      let d = 140
+      let e = 575
+      let f = 20
+      let g = 425
+      let h = 80
+      let w = 590
+      let x = 50 
+      let y = 410
+      let z = 50  
+      
+      ctx.strokeStyle = "yellow"
+        
+      for (let i = 0; i < 3; i++) {
+        ctx.beginPath()
+        ctx.moveTo(a, b)
+        ctx.lineTo(c, d)
+        ctx.stroke()
+        
+        a += 30
+        b += 15
+        c -= 30
+        d -= 15
+      }
+
+      for (let j = 0; j < 2; j++) {
+        ctx.beginPath()
+        ctx.moveTo(e, f)
+        ctx.lineTo(g, h)
+        ctx.stroke()
+
+        e -= 45
+        f += 105
+        g += 45
+        h -= 105
+      }      
+
+      for (let k = 0; k < 3; k++) {
+        ctx.beginPath()
+        ctx.moveTo(w, x)
+        ctx.lineTo(y, z)
+        ctx.stroke()  
+          
+        w -= 15
+        x += 30            
+        y += 15
+        z -= 30
+      }
+    
+      
+     
+    }
+    document.body.onload = render
+    
+  </script>
 </body>
 </html>
